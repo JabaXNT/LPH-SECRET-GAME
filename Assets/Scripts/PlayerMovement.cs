@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float padding = 0.5f; // adjust this value to add padding around the screen edges
     private float minX, maxX, minY, maxY;
 
     private void Start()
@@ -15,11 +16,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 bottomLeft = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
         Vector2 topRight = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
 
-        // calculate the limits of the screen
-        minX = bottomLeft.x;
-        maxX = topRight.x;
-        minY = bottomLeft.y;
-        maxY = topRight.y;
+        // calculate the limits of the screen with padding
+        minX = bottomLeft.x + padding;
+        maxX = topRight.x - padding;
+        minY = bottomLeft.y + padding;
+        maxY = topRight.y - padding;
     }
 
     private void Update()
