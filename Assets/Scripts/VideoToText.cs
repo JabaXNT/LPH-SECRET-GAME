@@ -7,7 +7,6 @@ public class VideoToText : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject videoPanel;
     public GameObject textPanel;
-    public Text textField;
 
     private bool isPlaying;
 
@@ -29,9 +28,6 @@ public class VideoToText : MonoBehaviour
         // When video ends, hide the video panel and show the text panel
         videoPanel.SetActive(false);
         textPanel.SetActive(true);
-
-        // Set the text to display the video's title
-        textField.text = videoPlayer.name;
     }
 
     public void OnButtonClick()
@@ -46,17 +42,11 @@ public class VideoToText : MonoBehaviour
             textPanel.SetActive(true);
             videoPanel.SetActive(false);
 
-            // Set the text to display the video's title
-            textField.text = videoPlayer.name;
-
             // Change the button text to "Video"
             GetComponentInChildren<Text>().text = "Видео";
         }
         else
         {
-            // Resume playing the video
-            videoPlayer.Play();
-            isPlaying = true;
 
             // Hide the text panel and show the video panel
             textPanel.SetActive(false);
@@ -78,9 +68,6 @@ public class VideoToText : MonoBehaviour
 
             // Show the text panel
             textPanel.SetActive(true);
-
-            // Set the text to display the video's title
-            textField.text = videoPlayer.name;
         }
         // Check if the video is paused and if the user presses the "space" key
         else if (!isPlaying && Input.GetKeyDown(KeyCode.Space))

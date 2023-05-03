@@ -12,24 +12,24 @@ public class TestLoader : MonoBehaviour
     public Button answer3Button;
     public Button answer4Button;
     public Button nextQuestionButton;
-    private bool testCompleted = false;
-
     private List<string> questions = new List<string>();
     private List<string[]> answers = new List<string[]>();
     private int rightAnswerIndex;
     private int currentTestResults = 0;
     private int currentQuestion = 0;
     private bool answered;
+    private ExhibitData exhibitData;
 
     private void Start()
     {
-        LoadTest("Test1.txt");
+        exhibitData = ExhibitData.currentExhibit;
+        LoadTest(exhibitData.testPath);
         DisplayQuestion();
     }
 
     private void LoadTest(string fileName)
     {
-        string filePath = Path.Combine("Assets/Tests/", fileName);
+        string filePath = Path.Combine("Assets/Tests/", fileName + ".txt");
         string[] lines = File.ReadAllLines(filePath);
 
         for (int i = 0; i < lines.Length; i += 6)

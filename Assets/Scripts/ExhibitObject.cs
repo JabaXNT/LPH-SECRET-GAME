@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 public class ExhibitObject : MonoBehaviour
 {
     public float interactionDistance = 2f; // the distance at which the player can interact with the object
+    public string exhibitName = "Default Exhibit"; // the name of the exhibit to be shown in the exhibit scene
+    public string videoPath = "Videos/lectureMaterial"; // the path to the video to be shown in the exhibit scene
+    public string textContent = "Default text content"; // the text content to be shown in the exhibit scene
+    public string testPath = "test1"; // the text content to be shown in the exhibit scene
 
     private bool canInteract = false; // flag to indicate whether the player is within interaction distance
     private Collider2D otherCollider; // reference to the collider of the other object
@@ -13,6 +17,10 @@ public class ExhibitObject : MonoBehaviour
         // check if the player is within interaction distance and pressed the E button
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
+            // set the exhibit data to be passed to the next scene
+            ExhibitData exhibitData = new ExhibitData(exhibitName, videoPath, textContent, testPath);
+            ExhibitData.currentExhibit = exhibitData;
+
             // load the new scene
             SceneManager.LoadScene("ExhibitScene");
         }
@@ -40,5 +48,23 @@ public class ExhibitObject : MonoBehaviour
             canInteract = false;
             otherCollider = null;
         }
+    }
+}
+
+public class ExhibitData
+{
+    public static ExhibitData currentExhibit;
+
+    public string exhibitName;
+    public string videoPath;
+    public string textContent;
+    public string testPath;
+
+    public ExhibitData(string exhibitName, string videoPath, string textContent, string testPath)
+    {
+        this.exhibitName = exhibitName;
+        this.testPath = testPath;
+        this.videoPath = videoPath;
+        this.textContent = textContent;
     }
 }
