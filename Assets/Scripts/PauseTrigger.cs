@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseTrigger : MonoBehaviour
 {
@@ -27,10 +28,6 @@ public class PauseTrigger : MonoBehaviour
 
         // Pause the game
         Time.timeScale = 0f;
-
-        // Disable player input
-        // (you can use this to prevent the player from moving or doing anything else while the game is paused)
-        //GetComponent<PlayerInput>().enabled = false;
     }
 
     public void OnResumeButtonClick()
@@ -40,8 +37,5 @@ public class PauseTrigger : MonoBehaviour
 
         // Unpause the game
         Time.timeScale = 1f;
-
-        // Enable player input
-        //GetComponent<PlayerInput>().enabled = true;
     }
 }

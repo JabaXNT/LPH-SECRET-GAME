@@ -18,6 +18,7 @@ public class TestLoader : MonoBehaviour
     private int currentTestResults = 0;
     private int currentQuestion = 0;
     private bool answered;
+    private bool testCompleted = false;
     private ExhibitData exhibitData;
 
     private void Start()
@@ -85,7 +86,7 @@ public class TestLoader : MonoBehaviour
                         break;
                 }
                 currentTestResults++;
-                TestResults.numCorrectAnswers++;
+                if (!testCompleted) TestResults.numCorrectAnswers++; // заполнение прогресс бара на главном экране
             }
             else
             {
@@ -158,6 +159,7 @@ public class TestLoader : MonoBehaviour
             answer4Button.interactable = true;
 
             nextQuestionButton.gameObject.SetActive(false);
+            testCompleted = true;
 
             DisplayQuestion();
         }

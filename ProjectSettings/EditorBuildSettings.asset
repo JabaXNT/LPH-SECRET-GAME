@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 670a5e5efda4dbb4bb6a185429240ff8
+  - enabled: 1
+    path: Assets/Scenes/Pascalina.unity
+    guid: 44833b7310b05d84db1563e8c67084c3
   m_configObjects: {}

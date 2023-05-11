@@ -7,7 +7,9 @@ public class ExhibitObject : MonoBehaviour
     public string exhibitName = "Default Exhibit"; // the name of the exhibit to be shown in the exhibit scene
     public string videoPath = "Videos/lectureMaterial"; // the path to the video to be shown in the exhibit scene
     public string textContent = "Default text content"; // the text content to be shown in the exhibit scene
+    public string imageContent = "Assets/Sprites/logo.png"; // the image content to be shown in the exhibit scene
     public string testPath = "test1"; // the text content to be shown in the exhibit scene
+    public string gameScene = "Assets/Scenes/Pascalina"; // the game scene to be shown
 
     private bool canInteract = false; // flag to indicate whether the player is within interaction distance
     private Collider2D otherCollider; // reference to the collider of the other object
@@ -18,7 +20,7 @@ public class ExhibitObject : MonoBehaviour
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
             // set the exhibit data to be passed to the next scene
-            ExhibitData exhibitData = new ExhibitData(exhibitName, videoPath, textContent, testPath);
+            ExhibitData exhibitData = new ExhibitData(exhibitName, videoPath, textContent, testPath, gameScene, imageContent);
             ExhibitData.currentExhibit = exhibitData;
 
             // load the new scene
@@ -59,12 +61,16 @@ public class ExhibitData
     public string videoPath;
     public string textContent;
     public string testPath;
+    public string gameScene;
+    public string imageContent;
 
-    public ExhibitData(string exhibitName, string videoPath, string textContent, string testPath)
+    public ExhibitData(string exhibitName, string videoPath, string textContent, string testPath, string gameScene, string imageContent)
     {
         this.exhibitName = exhibitName;
         this.testPath = testPath;
         this.videoPath = videoPath;
         this.textContent = textContent;
+        this.gameScene = gameScene;
+        this.imageContent = imageContent;
     }
 }
