@@ -96,6 +96,7 @@ public class VideoToTextToImage : MonoBehaviour
     {
         if (currentPanel != 2)
         {
+            currentPanel = 2;
             if (isPlaying)
             {
                 // Pause the video and show the image panel
@@ -114,7 +115,6 @@ public class VideoToTextToImage : MonoBehaviour
                 imagePanel.SetActive(true);
                 videoPanel.SetActive(false);
                 textPanel.SetActive(false);
-                currentPanel = 2;
                 scrollbarEnabled = false;
                 videoScrollbar.gameObject.SetActive(false);
             }

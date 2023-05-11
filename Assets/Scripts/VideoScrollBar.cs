@@ -21,15 +21,15 @@ public class VideoScrollBar : MonoBehaviour
 
     void Update()
     {
-        if (isDraggingScrollbar)
+        if (!isDraggingScrollbar && videoPlayer.frameCount > 0)
         {
-            videoPlayer.frame = (long)(scrollbar.value * videoPlayer.frameCount);
+            scrollbar.value = (float)(videoPlayer.frame + 0.11) / (float)videoPlayer.frameCount;
         }
     }
 
     public void OnScrollbarValueChanged()
     {
-        if (!isDraggingScrollbar)
+        if (isDraggingScrollbar)
         {
             // Set the video's current frame based on the scrollbar's value
             videoPlayer.frame = (long)(scrollbar.value * videoPlayer.frameCount);

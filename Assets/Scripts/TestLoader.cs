@@ -86,7 +86,7 @@ public class TestLoader : MonoBehaviour
                         break;
                 }
                 currentTestResults++;
-                if (!testCompleted) TestResults.numCorrectAnswers++; // заполнение прогресс бара на главном экране
+                if (!testCompleted) TestResults.numCorrectAnswers++; // заполнение прогресс бара на главном экране не работает...
             }
             else
             {
