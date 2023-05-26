@@ -1510,7 +1510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a32457aad18064aafe431e4c7bed9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: GameScreen
+  sceneName: HubScene
 --- !u!1 &1158242006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,8 +1793,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0497, y: -0.462}
-  m_SizeDelta: {x: 1114.8281, y: 586.0034}
+  m_AnchoredPosition: {x: 2.328, y: 5.5611}
+  m_SizeDelta: {x: 1162.5178, y: 631.9849}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1266157695
 GameObject:

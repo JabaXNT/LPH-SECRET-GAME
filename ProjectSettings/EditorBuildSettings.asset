@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pascalina.unity
     guid: 44833b7310b05d84db1563e8c67084c3
+  - enabled: 1
+    path: Assets/Scenes/HubScene.unity
+    guid: e46c809bfd604894ba7af63f2aa8d3e2
   m_configObjects: {}

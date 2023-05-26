@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float padding = 0.5f; // adjust this value to add padding around the screen edges
     private float minX, maxX, minY, maxY;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     private void Start()
     {
@@ -21,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
         maxX = topRight.x - padding;
         minY = bottomLeft.y + padding;
         maxY = topRight.y - padding;
+        animator = GetComponent<Animator>();
+        
+
+        // get the reference to the Sprite Renderer component
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -40,5 +47,19 @@ public class PlayerMovement : MonoBehaviour
 
         // set the new position
         transform.position = position;
+
+        // flip the sprite when moving left
+        if (horizontal < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (horizontal > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+
+        // Update the animator parameter based on movement
+        bool isMoving = Mathf.Abs(horizontal) > 0 || Mathf.Abs(vertical) > 0;
+        animator.SetBool("IsMoving", isMoving);
     }
 }
