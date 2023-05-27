@@ -8177,7 +8177,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.001
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -8596,7 +8596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 101
   interactionRadius: 1
-  targetSceneName: GameScreen
+  targetSceneName: FirstRoom
 --- !u!212 &1879697137
 SpriteRenderer:
   m_ObjectHideFlags: 0
