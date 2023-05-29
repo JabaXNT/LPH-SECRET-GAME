@@ -14,16 +14,17 @@ public class TestLoader : MonoBehaviour
     public Button nextQuestionButton;
     private List<string> questions = new List<string>();
     private List<string[]> answers = new List<string[]>();
-    private int rightAnswerIndex;
+    private List<int> rightAnswerIndex = new List<int>(); // Изменено: правильные ответы теперь хранятся в списке int
     private int currentTestResults = 0;
     private int currentQuestion = 0;
+    private int currentRightAnswer = 0;
     private bool answered;
-    private ExhibitData exhibitData;
+    private SummaryData objectData;
 
     private void Start()
     {
-        exhibitData = ExhibitData.currentExhibit;
-        LoadTest(exhibitData.testPath);
+        objectData = SummaryData.currentChapter;
+        LoadTest(objectData.testPath);
         DisplayQuestion();
     }
 
@@ -36,7 +37,7 @@ public class TestLoader : MonoBehaviour
         {
             questions.Add(lines[i]);
             answers.Add(new string[4] { lines[i + 1], lines[i + 2], lines[i + 3], lines[i + 4] });
-            rightAnswerIndex = int.Parse(lines[i + 5]) - 1;
+            rightAnswerIndex.Add(int.Parse(lines[i + 5]) - 1);
         }
     }
 
@@ -47,7 +48,7 @@ public class TestLoader : MonoBehaviour
         answer2Button.GetComponentInChildren<Text>().text = answers[currentQuestion][1];
         answer3Button.GetComponentInChildren<Text>().text = answers[currentQuestion][2];
         answer4Button.GetComponentInChildren<Text>().text = answers[currentQuestion][3];
-
+        currentRightAnswer = rightAnswerIndex[currentQuestion];
         // Reset button colors and disable answer buttons
         answer1Button.image.color = Color.white;
         answer2Button.image.color = Color.white;
@@ -60,13 +61,13 @@ public class TestLoader : MonoBehaviour
         nextQuestionButton.gameObject.SetActive(false);
     }
 
+
     public void CheckAnswer(int answerIndex)
     {
         if (!answered)
         {
             answered = true;
-
-            if (answerIndex == rightAnswerIndex)
+            if (answerIndex == currentRightAnswer)
             {
                 Debug.Log("Correct!");
                 switch (answerIndex)
@@ -106,7 +107,7 @@ public class TestLoader : MonoBehaviour
                         break;
                 }
 
-                switch (rightAnswerIndex)
+                switch (currentRightAnswer)
                 {
                     case 0:
                         answer1Button.image.color = Color.green;

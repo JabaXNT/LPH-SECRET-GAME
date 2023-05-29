@@ -8,7 +8,6 @@ public class ExhibitLoader : MonoBehaviour
     public Text exhibitText;
     public VideoPlayer exhibitVideo;
     public Button exhibitGameButton;
-    public Button exhibitTestButton;
     public Image exhibitImagePanel;
     private ExhibitData exhibitData;
 
@@ -19,16 +18,12 @@ public class ExhibitLoader : MonoBehaviour
         exhibitText.text = exhibitData.textContent;
         // Load the image from a file
         Texture2D texture = LoadImageFromFile(exhibitData.imageContent);
-
         // Create a new Sprite object and assign the texture to it
         Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-
         // Set the sprite to the Image component
         exhibitImagePanel.sprite = sprite;
-
         exhibitVideo.Play();
         exhibitGameButton.onClick.AddListener(LoadGameScene);
-        exhibitTestButton.onClick.AddListener(LoadTestScene);
     }
 
     Texture2D LoadImageFromFile(string path)
@@ -42,10 +37,5 @@ public class ExhibitLoader : MonoBehaviour
     void LoadGameScene()
     {
         SceneManager.LoadScene(exhibitData.gameScene);
-    }
-
-    void LoadTestScene()
-    {
-        SceneManager.LoadScene("TestScene");
     }
 }

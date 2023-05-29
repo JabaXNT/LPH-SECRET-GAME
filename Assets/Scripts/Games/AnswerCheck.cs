@@ -12,10 +12,7 @@ public class AnswerCheck : MonoBehaviour
         string concatenatedString = "";
         for (int i = 0; i < inputFields.Length; i++)
         {
-            string inputText = inputFields[i].text;
-            // Удаляем незначащие нули в начале числа
-            inputText = inputText.TrimStart('0');
-            concatenatedString += inputText;
+            concatenatedString += inputFields[i].text;
         }
 
         // Отображение объединенной строки в результате

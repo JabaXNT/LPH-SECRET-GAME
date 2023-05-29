@@ -1,14 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExhibitObject : MonoBehaviour
+public class ChapterSummaryObject : MonoBehaviour
 {
     public float interactionDistance = 2f; // the distance at which the player can interact with the object
-    public string exhibitName = "Default Exhibit"; // the name of the exhibit to be shown in the exhibit scene
-    public string videoPath = "Videos/lectureMaterial"; // the path to the video to be shown in the exhibit scene
+    public string ChapterName = "Default Exhibit"; // the name of the exhibit to be shown in the exhibit scene
     public string textContent = "Default text content"; // the text content to be shown in the exhibit scene
     public string imageContent = "Assets/Sprites/logo.png"; // the image content to be shown in the exhibit scene
-    public string gameScene = "Assets/Scenes/Pascalina"; // the game scene to be shown
+    public string testPath = "test1"; // the text content to be shown in the exhibit scene
+    public ExhibitData VideoScene1; // the game scene to be shown
+    public ExhibitData VideoScene2; // the game scene to be shown
     private bool canInteract = false; // flag to indicate whether the player is within interaction distance
     private Collider2D otherCollider; // reference to the collider of the other object
 
@@ -18,11 +21,11 @@ public class ExhibitObject : MonoBehaviour
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
             // set the exhibit data to be passed to the next scene
-            ExhibitData exhibitData = new ExhibitData(exhibitName, videoPath, textContent, gameScene, imageContent);
-            ExhibitData.currentExhibit = exhibitData;
+            SummaryData objectData = new SummaryData(ChapterName, textContent, imageContent, testPath, VideoScene1, VideoScene2);
+            SummaryData.currentChapter = objectData;
 
             // load the new scene
-            SceneManager.LoadScene("ExhibitScene");
+            SceneManager.LoadScene("ToBeOrNotToBeScene");
         }
     }
 
@@ -51,22 +54,24 @@ public class ExhibitObject : MonoBehaviour
     }
 }
 
-public class ExhibitData
+public class SummaryData
 {
-    public static ExhibitData currentExhibit;
+    public static SummaryData currentChapter;
 
-    public string exhibitName;
+    public string objectName;
     public string videoPath;
     public string textContent;
-    public string gameScene;
-    public string imageContent;
+    public string testPath;
+    public ExhibitData videoScene1;
+    public ExhibitData videoScene2;
 
-    public ExhibitData(string exhibitName, string videoPath, string textContent, string gameScene, string imageContent)
+    public SummaryData(string ChapterName, string videoPath, string textContent, string testPath, ExhibitData VideoScene1, ExhibitData VideoScene2)
     {
-        this.exhibitName = exhibitName;
-        this.videoPath = videoPath;
+        this.objectName = ChapterName;
+        this.testPath = testPath;
         this.textContent = textContent;
-        this.gameScene = gameScene;
-        this.imageContent = imageContent;
+        this.videoScene1 = VideoScene1;
+        this.videoScene2 = VideoScene2;
     }
 }
+
