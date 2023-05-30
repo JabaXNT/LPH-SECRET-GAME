@@ -6,7 +6,6 @@ public class VideoStopper : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public Button stopButton;
-
     private double videoTime;
     private bool isPlaying = true;
     private double lastPlaybackTime;

@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ToBeOrNotToBeScene.unity
     guid: d3741917db9c77d4296cb17b03019678
+  - enabled: 1
+    path: Assets/Scenes/ChapterChooseScreen.unity
+    guid: 10b095ff29d32614aa672ab1d69977e9
   m_configObjects: {}

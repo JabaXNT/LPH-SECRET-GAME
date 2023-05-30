@@ -8,6 +8,7 @@ public class ExhibitLoader : MonoBehaviour
     public Text exhibitText;
     public VideoPlayer exhibitVideo;
     public Button exhibitGameButton;
+    public Button exhibitRoomButton;
     public Image exhibitImagePanel;
     private ExhibitData exhibitData;
 
@@ -24,6 +25,7 @@ public class ExhibitLoader : MonoBehaviour
         exhibitImagePanel.sprite = sprite;
         exhibitVideo.Play();
         exhibitGameButton.onClick.AddListener(LoadGameScene);
+        exhibitRoomButton.onClick.AddListener(LoadRoomScene);
     }
 
     Texture2D LoadImageFromFile(string path)
@@ -37,5 +39,10 @@ public class ExhibitLoader : MonoBehaviour
     void LoadGameScene()
     {
         SceneManager.LoadScene(exhibitData.gameScene);
+    }
+
+    void LoadRoomScene()
+    {
+        SceneManager.LoadScene(exhibitData.roomScene);
     }
 }

@@ -9,6 +9,7 @@ public class ExhibitObject : MonoBehaviour
     public string textContent = "Default text content"; // the text content to be shown in the exhibit scene
     public string imageContent = "Assets/Sprites/logo.png"; // the image content to be shown in the exhibit scene
     public string gameScene = "Assets/Scenes/Pascalina"; // the game scene to be shown
+    public string roomScene = "Scenes/FirstRoom";
     private bool canInteract = false; // flag to indicate whether the player is within interaction distance
     private Collider2D otherCollider; // reference to the collider of the other object
 
@@ -18,7 +19,7 @@ public class ExhibitObject : MonoBehaviour
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
             // set the exhibit data to be passed to the next scene
-            ExhibitData exhibitData = new ExhibitData(exhibitName, videoPath, textContent, gameScene, imageContent);
+            ExhibitData exhibitData = new ExhibitData(exhibitName, videoPath, textContent, gameScene, imageContent, roomScene);
             ExhibitData.currentExhibit = exhibitData;
 
             // load the new scene
@@ -60,13 +61,15 @@ public class ExhibitData
     public string textContent;
     public string gameScene;
     public string imageContent;
+    public string roomScene;
 
-    public ExhibitData(string exhibitName, string videoPath, string textContent, string gameScene, string imageContent)
+    public ExhibitData(string exhibitName, string videoPath, string textContent, string gameScene, string imageContent, string roomScene)
     {
         this.exhibitName = exhibitName;
         this.videoPath = videoPath;
         this.textContent = textContent;
         this.gameScene = gameScene;
         this.imageContent = imageContent;
+        this.roomScene = roomScene;
     }
 }
