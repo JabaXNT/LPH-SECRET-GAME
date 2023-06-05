@@ -14,13 +14,14 @@ public class TestLoader : MonoBehaviour
     public Button nextQuestionButton;
     private List<string> questions = new List<string>();
     private List<string[]> answers = new List<string[]>();
+    private string TestNumber;
     private List<int> rightAnswerIndex = new List<int>(); // Изменено: правильные ответы теперь хранятся в списке int
     private int currentTestResults = 0;
     private int currentQuestion = 0;
     private int currentRightAnswer = 0;
     private bool answered;
     private SummaryData objectData;
-
+    public bool imageDisplay;
     private void Start()
     {
         objectData = SummaryData.currentChapter;
@@ -32,7 +33,6 @@ public class TestLoader : MonoBehaviour
     {
         string filePath = Path.Combine("Assets/Tests/", fileName + ".txt");
         string[] lines = File.ReadAllLines(filePath);
-
         for (int i = 0; i < lines.Length; i += 6)
         {
             questions.Add(lines[i]);
@@ -50,10 +50,10 @@ public class TestLoader : MonoBehaviour
         answer4Button.GetComponentInChildren<Text>().text = answers[currentQuestion][3];
         currentRightAnswer = rightAnswerIndex[currentQuestion];
         // Reset button colors and disable answer buttons
-        answer1Button.image.color = Color.white;
-        answer2Button.image.color = Color.white;
-        answer3Button.image.color = Color.white;
-        answer4Button.image.color = Color.white;
+        answer1Button.image.color = Color.clear;
+        answer2Button.image.color = Color.clear;
+        answer3Button.image.color = Color.clear;
+        answer4Button.image.color = Color.clear;
         answer1Button.interactable = true;
         answer2Button.interactable = true;
         answer3Button.interactable = true;
@@ -148,7 +148,11 @@ public class TestLoader : MonoBehaviour
             // Set test completion message
             questionText.text = "Test Completed: " + currentTestResults + "/" + questions.Count + " Correct";
             nextQuestionButton.GetComponentInChildren<Text>().text = "Вернуться в главное меню";
-            nextQuestionButton.onClick.AddListener(() => SceneManager.LoadScene("MainScreen"));
+            nextQuestionButton.onClick.AddListener(() =>
+            {
+                imageDisplay = false;
+                SceneManager.LoadScene("MainScreen");
+            });
         }
         else
         {
