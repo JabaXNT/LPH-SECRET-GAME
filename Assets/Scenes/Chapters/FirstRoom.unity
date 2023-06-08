@@ -667,7 +667,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 448213ef6adae844da23a374360ad699, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7eaa48b9dc3befa45a50d2fdc6e943ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1180,8 +1180,8 @@ Canvas:
   m_GameObject: {fileID: 353281056}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 51970070}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1538,7 +1538,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1190357390}
         m_TargetAssemblyTypeName: PauseTrigger, Assembly-CSharp
         m_MethodName: OnResumeButtonClick
         m_Mode: 1
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1190357390}
         m_TargetAssemblyTypeName: PauseTrigger, Assembly-CSharp
         m_MethodName: OnResumeButtonClick
         m_Mode: 1
