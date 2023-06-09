@@ -70,6 +70,7 @@ public class BackgroundMusic : MonoBehaviour
     {
         // Устанавливаем альтернативный аудиофайл для проигрывания
         audioSource.clip = alternateMusic;
+        audioSource.volume = 0.2f;
         audioSource.Play();
     }
 }

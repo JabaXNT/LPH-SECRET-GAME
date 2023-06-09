@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScreen.unity
     guid: 16bf4e5241f2c5844b5b9e09cacd8817
   - enabled: 1
-    path: Assets/Scenes/Chapters/FirstRoom.unity
-    guid: f86231aa6467a9b46a0471edd9f422a8
-  - enabled: 1
-    path: Assets/Scenes/ExhibitScene.unity
-    guid: b1846a05f1bffbc4eb9a4aa70fb99201
-  - enabled: 1
     path: Assets/Scenes/SettingsScreen.unity
     guid: 9c695cd9a67d623459af6ff8d1397681
   - enabled: 1
@@ -33,12 +27,21 @@ EditorBuildSettings:
     path: Assets/Scenes/ChapterChooseScreen.unity
     guid: 10b095ff29d32614aa672ab1d69977e9
   - enabled: 1
-    path: Assets/Scenes/Chapters/SecondRoom.unity
-    guid: e84bbea415e0343469531e130b8ee2cd
-  - enabled: 1
     path: Assets/Scenes/ControlsScreen.unity
     guid: ed0172784ee27de4b88e466156b24627
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 089e18395d281324482e61cd41eb2083
+  - enabled: 1
+    path: Assets/Scenes/Chapters/SeventhRoom.unity
+    guid: cb33a7fa26330a34d8aec434ed9166f3
+  - enabled: 1
+    path: Assets/Scenes/Chapters/SecondRoom.unity
+    guid: e84bbea415e0343469531e130b8ee2cd
+  - enabled: 1
+    path: Assets/Scenes/Chapters/FirstRoom.unity
+    guid: f86231aa6467a9b46a0471edd9f422a8
+  - enabled: 1
+    path: Assets/Scenes/ExhibitScene.unity
+    guid: b1846a05f1bffbc4eb9a4aa70fb99201
   m_configObjects: {}
