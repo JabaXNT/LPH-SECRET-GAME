@@ -155,7 +155,7 @@ public class TestLoader : MonoBehaviour
             answer4Button.gameObject.SetActive(false);
 
             // Set test completion message
-            questionText.text = "Тест пройден: " + TestResults.numCorrectAnswers + "/" + questions.Count + " Правильно";
+            questionText.text = "Тест пройден: " + 50 + "/" + questions.Count + " Правильно";
             isVisible = true;
             nextQuestionButton.GetComponentInChildren<Text>().text = "Вернуться в главное меню";
             nextQuestionButton.onClick.AddListener(() =>

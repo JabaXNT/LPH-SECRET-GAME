@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ExhibitScene.unity
     guid: b1846a05f1bffbc4eb9a4aa70fb99201
+  - enabled: 1
+    path: Assets/Scenes/StatisticScene.unity
+    guid: c7bef67c26985f44681dbeeb4ab6131e
   m_configObjects: {}
