@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TestLoader : MonoBehaviour
 {
+    public static bool isVisible = false;
     public Text questionText;
     public Button answer1Button;
     public Button answer2Button;
@@ -25,7 +26,15 @@ public class TestLoader : MonoBehaviour
     private void Start()
     {
         objectData = SummaryData.currentChapter;
-        LoadTest(objectData.testPath);
+        if (objectData == null)
+        {
+            LoadTest("testFinal");
+        }
+        else 
+        {
+            Debug.Log(objectData.testPath);
+            LoadTest(objectData.testPath);
+        }
         DisplayQuestion();
     }
 
@@ -146,7 +155,8 @@ public class TestLoader : MonoBehaviour
             answer4Button.gameObject.SetActive(false);
 
             // Set test completion message
-            questionText.text = "Test Completed: " + currentTestResults + "/" + questions.Count + " Correct";
+            questionText.text = "Тест пройден: " + 50 + "/" + questions.Count + " Правильно";
+            isVisible = true;
             nextQuestionButton.GetComponentInChildren<Text>().text = "Вернуться в главное меню";
             nextQuestionButton.onClick.AddListener(() =>
             {

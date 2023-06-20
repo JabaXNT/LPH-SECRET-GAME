@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Collections.Generic;
 
 public class CompareAnswer : MonoBehaviour
 {
@@ -10,12 +11,20 @@ public class CompareAnswer : MonoBehaviour
     public Text targetText;
     public Button compareButton;
 
+    public List<string> exampleList = new List<string>(); // Список примеров
+
     private Color correctColor = Color.green;
     private Color incorrectColor = Color.red;
 
     private void Start()
     {
         compareButton.onClick.AddListener(CompareInputNumber);
+
+        // Проверяем, есть ли примеры в списке
+        if (exampleList.Count > 0)
+        {
+            SetNewTargetText();
+        }
     }
 
     private void CompareInputNumber()
@@ -44,10 +53,26 @@ public class CompareAnswer : MonoBehaviour
         if (inputNumber == targetNumber)
         {
             compareButton.image.color = correctColor;
+            SetNewTargetText();
         }
         else
         {
             compareButton.image.color = incorrectColor;
+        }
+    }
+
+    private void SetNewTargetText()
+    {
+        if (exampleList.Count > 0)
+        {
+            // Выбираем случайный индекс для нового примера
+            int randomIndex = UnityEngine.Random.Range(0, exampleList.Count);
+
+            // Устанавливаем текст нового примера в targetText
+            targetText.text = exampleList[randomIndex];
+
+            // Очищаем поле ввода
+            inputField.text = "";
         }
     }
 

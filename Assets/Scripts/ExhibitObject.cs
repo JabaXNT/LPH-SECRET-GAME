@@ -9,7 +9,7 @@ public class ExhibitObject : MonoBehaviour
     public string textContent = "Default text content"; // the text content to be shown in the exhibit scene
     public string imageContent = "Assets/Sprites/logo.png"; // the image content to be shown in the exhibit scene
     public string gameScene = "Assets/Scenes/Pascalina"; // the game scene to be shown
-    public string roomScene = "Scenes/FirstRoom";
+    public string roomScene = "Scenes/Chapters/FirstRoom";
     private bool canInteract = false; // flag to indicate whether the player is within interaction distance
     private Collider2D otherCollider; // reference to the collider of the other object
 

@@ -19,7 +19,7 @@ public class BackgroundMusic : MonoBehaviour
         // Проверяем, существует ли уже экземпляр скрипта BackgroundMusic
         if (instance != null && instance != this)
         {
-            // Если экземпляр уже существует, уничтожаем текущий объект
+            // Если экземпляр уже существует и не является текущим объектом, уничтожаем текущий объект
             Destroy(gameObject);
             return;
         }
@@ -52,12 +52,7 @@ public class BackgroundMusic : MonoBehaviour
         {
             audioSource.volume = 0f;
         }
-        else
-        {
-            // Воспроизводим музыку по умолчанию
-            audioSource.volume = 0.3f;
-        }
-        // Проверяем, находится ли мы в сцене, где нужно изменить музыку
+        // Проверяем, находимся ли мы в сцене, где нужно изменить музыку
         if (sceneName == "Pascalina" || sceneName == "SceneName2")
         {
             PlayAlternateMusic();
@@ -75,6 +70,7 @@ public class BackgroundMusic : MonoBehaviour
     {
         // Устанавливаем альтернативный аудиофайл для проигрывания
         audioSource.clip = alternateMusic;
+        audioSource.volume = 0.2f;
         audioSource.Play();
     }
 }
